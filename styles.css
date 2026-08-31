@@ -1085,6 +1085,33 @@ h3 {
   line-height: 1.05;
 }
 
+.video-container {
+  max-width: 1060px;
+  margin: 42px auto 0;
+}
+
+.video-container iframe {
+  border: 1px solid rgba(245, 184, 75, 0.24);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.video-caption {
+  margin-top: 22px;
+  padding: 18px 24px;
+  background: rgba(245, 184, 75, 0.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d4d4d4;
+}
+
+.video-caption strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
 .flow-story-map {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
