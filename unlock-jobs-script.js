@@ -46,4 +46,50 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     heroObserver.observe(heroSection);
   }
+
+  // Flipbook — "Look Inside" page preview
+  const flipbook = document.getElementById('flipbook');
+
+  if (flipbook) {
+    const pages = Array.from(flipbook.querySelectorAll('.flipbook__page'));
+    const prevBtn = document.querySelector('[data-flipbook-prev]');
+    const nextBtn = document.querySelector('[data-flipbook-next]');
+    const dots = Array.from(document.querySelectorAll('.flipbook__dot'));
+    const total = pages.length;
+    let current = 0;
+
+    function renderFlipbook() {
+      pages.forEach((page, i) => page.classList.toggle('is-flipped', i < current));
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === current));
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current === total - 1;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (current > 0) {
+          current -= 1;
+          renderFlipbook();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (current < total - 1) {
+          current += 1;
+          renderFlipbook();
+        }
+      });
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        current = i;
+        renderFlipbook();
+      });
+    });
+
+    renderFlipbook();
+  }
 });
