@@ -33,6 +33,24 @@ document.addEventListener('DOMContentLoaded', () => {
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
+  // Ebook page preview slider (centre mode)
+  if (window.Swiper && document.querySelector('.page-swiper')) {
+    new Swiper('.page-swiper', {
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      initialSlide: 2,
+      rewind: true,
+      grabCursor: true,
+      keyboard: { enabled: true },
+      autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? false
+        : { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+      navigation: { prevEl: '.page-swiper__prev', nextEl: '.page-swiper__next' },
+      pagination: { el: '.page-swiper__pagination', clickable: true },
+    });
+  }
+
   // Sticky CTA — visible after the hero, hidden once checkout is on screen
   const stickyCta = document.getElementById('stickyCta');
   const hero = document.querySelector('.hero');
