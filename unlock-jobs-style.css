@@ -1778,3 +1778,10 @@ h3 { font-size: var(--text-2xl); }
   .hero__headline .nowrap { white-space: normal; }
   .sticky-cta .btn { padding: 0 16px; font-size: .72rem; }
 }
+
+.sticky-cta__old {
+  margin: 0 4px;
+  color: var(--text-muted);
+  font-size: .85em;
+  font-weight: 600;
+}
